@@ -470,7 +470,7 @@ function drawScene()
 			}
 			for(var j = 0; j<kol_br; j++)
 			{
-				if(posy_g + 50 >= 370 && posy_g <= 370 + 100 && posx_g <= mas_brev[j] + 200 && posx_g + 50 >= mas_brev[j])
+				if(posy_g + 50 >= 370 && posy_g <= 370 + 100 && posx_g <= mas_brev[j] + 180 && posx_g + 50 >= mas_brev[j])
 				{	
 					fl_over = 1;
 				}
@@ -502,7 +502,7 @@ function drawScene()
 			}
 			for(var j = 0; j<kol_ya; j++)
 			{
-				if(posy_g + 50 >= 0 && posy_g<= 180 && posx_g + 50 >= mas_yac[j] && posx_g<=84+mas_yac[j])
+				if(posy_g + 50 >= 0 && posy_g<= 180 && posx_g + 50 >= mas_yac[j] && posx_g<=64+mas_yac[j])
 				{	
 					fl_over = 1;
 				}
