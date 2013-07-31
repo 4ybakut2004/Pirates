@@ -53,8 +53,8 @@ var mas_shu = new Array();						//координаты по у шупальцев
 var mas_point = new Array(20, 50, 100, 300, 600); 
 var mas_pr = new Array(							//массив правил
 "Сперва выберите персонажа, за которого будете играть. Для начала нашего славного приключения нажмите клавишу d. Бежать от врага тебе поможет та же самая клавиша. А клавиши w и s помогут тебе уворачиваться от бомб и ловить монетки столько ценные в нашем деле. На пути тебе буду встречать якори и бревна, ",
-"увиливай от них, иначе предеться начать заново! Следи за черепками, что появляются в правом углу экрана, чем больше их, тем ближе ты к открытию новой части истории. Для каждого героя своя легенда! Собери все!<br/> Если ты захочешь отдохнуть, то жми p, или воспользуйся кнопкой на панели.",
-"Закрыть историю можно нажатием любой клавиши, кроме тех, что помогают тебе в этом нелегком путешествии!",
+"увиливай от них, иначе предеться начать заново! Следи за черепками, что появляются в правом углу экрана, чем больше их, тем ближе ты к открытию новой части истории. Для каждого героя своя легенда! Собери все!<br/>  Открытые истории закрывают при нажатии на enter!",
+"Если ты захочешь отдохнуть, то жми p, или воспользуйся кнопкой на панели.",
 "Надоела музыка? Воспользуйся панельными кнопками. Там же имеются и регуляторы громкости. Не теряйся!",
 "Хочешь узнать о нас? Ищи кнопку с мотором, там ты узнаешь не только о нашей команде, но и об обновлениях игры!"
 );		
@@ -102,12 +102,16 @@ function handleKeys()
 		}
 		if (currentlyPressedKeys[83]) 
 		{
-			if(posy_g<400) posy_g += 5;
+			if(posy_g<370) posy_g += 5;
 		}
     }
     if (currentlyPressedKeys[68]&&!flag&&rab) 
 	{
 		flag = 1;
+	}
+	if(currentlyPressedKeys[13])
+	{
+		Close();
 	}
 }
 
@@ -466,7 +470,7 @@ function drawScene()
 			}
 			for(var j = 0; j<kol_br; j++)
 			{
-				if(posy_g>= 400-70 && posy_g<= 400 && posx_g<=mas_brev[j] && posx_g>=-50+mas_brev[j])
+				if(posy_g + 50 >= 370 && posy_g <= 370 + 100 && posx_g <= mas_brev[j] + 200 && posx_g + 50 >= mas_brev[j])
 				{	
 					fl_over = 1;
 				}
@@ -475,7 +479,7 @@ function drawScene()
 						
 				gl.bindBuffer(gl.ARRAY_BUFFER, objVertexPositionBuffer[i]);
 							
-				setRectangle(gl, mas_brev[j], 400, 200, 100);
+				setRectangle(gl, mas_brev[j], 370, 200, 100);
 				gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,2,gl.FLOAT,false,0,0);
 							
 				gl.bindBuffer(gl.ARRAY_BUFFER, objVertexTextureCoordBuffer[0]);
@@ -498,7 +502,7 @@ function drawScene()
 			}
 			for(var j = 0; j<kol_ya; j++)
 			{
-				if(posy_g>= 0 && posy_g<= 120 && posx_g<=mas_yac[j] && posx_g>=-70+mas_yac[j])
+				if(posy_g + 50 >= 0 && posy_g<= 180 && posx_g + 50 >= mas_yac[j] && posx_g<=84+mas_yac[j])
 				{	
 					fl_over = 1;
 				}
@@ -531,7 +535,7 @@ function drawScene()
 						
 				gl.bindBuffer(gl.ARRAY_BUFFER, objVertexPositionBuffer[i]);
 							
-				setRectangle(gl, 640 - 50*l, 5, 50, 50);
+				setRectangle(gl, 580 - 50*l, 5, 50, 50);
 				gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,2,gl.FLOAT,false,0,0);
 							
 				gl.bindBuffer(gl.ARRAY_BUFFER, objVertexTextureCoordBuffer[0]);
@@ -555,52 +559,52 @@ function main()
 	document.getElementById("p5").innerHTML = "Игра разработана командой <a href=\"http://fk-2o13.diary.ru/?tag=4902746\">fandom Pirates of the Caribbean 2013</a> для Фандомной битвы - 2013 на <a href=\"http://www.diary.ru/\">diary.ru</a> <br/>";
 	//-----------------чтоб этот js!! с циклом не срабатывает, собака -___---------------
 	
-	texture[0] = createTex("pic/back_01.jpg");
-	texture[1] = createTex("pic/back_02.jpg");
-	texture[2] = createTex("pic/back_03.jpg");
-	texture[3] = createTex("pic/back_04.jpg");
-	texture[4] = createTex("pic/back_05.jpg");
-	texture[5] = createTex("pic/back_06.jpg");
-	texture[6] = createTex("pic/back_07.jpg");
-	texture[7] = createTex("pic/back_08.jpg");
-	texture[8] = createTex("pic/back_09.jpg");
-	texture[9] = createTex("pic/back_10.jpg");
-	texture[10] = createTex("pic/back_01.jpg");
+	texture[0] = createTex("back_01.jpg");
+	texture[1] = createTex("back_02.jpg");
+	texture[2] = createTex("back_03.jpg");
+	texture[3] = createTex("back_04.jpg");
+	texture[4] = createTex("back_05.jpg");
+	texture[5] = createTex("back_06.jpg");
+	texture[6] = createTex("back_07.jpg");
+	texture[7] = createTex("back_08.jpg");
+	texture[8] = createTex("back_09.jpg");
+	texture[9] = createTex("back_10.jpg");
+	texture[10] = createTex("back_01.jpg");
 	
 	//-------------------------------загрузка играков-------------------------------------
 	
-	texture[11] = createTex("pic/1.png");
-	texture[12] = createTex("pic/2.png");
-	texture[13] = createTex("pic/3.png");
-	texture[14] = createTex("pic/4.png");
-	texture[15] = createTex("pic/5.png");
-	texture[16] = createTex("pic/6.png");
-	texture[17] = createTex("pic/7.png");
-	texture[18] = createTex("pic/8.png");
-	texture[19] = createTex("pic/9.png");
-	texture[20] = createTex("pic/10.png");
-	texture[21] = createTex("pic/11.png");
-	texture[22] = createTex("pic/12.png");
+	texture[11] = createTex("1.png");
+	texture[12] = createTex("2.png");
+	texture[13] = createTex("3.png");
+	texture[14] = createTex("4.png");
+	texture[15] = createTex("5.png");
+	texture[16] = createTex("6.png");
+	texture[17] = createTex("7.png");
+	texture[18] = createTex("8.png");
+	texture[19] = createTex("9.png");
+	texture[20] = createTex("10.png");
+	texture[21] = createTex("11.png");
+	texture[22] = createTex("12.png");
 	
 	//---------------------------------атрибутика-----------------------------------
 	
-	texture[23] = createTex("pic/pol.png");
-	texture[24] = createTex("pic/br.png");
-	texture[25] = createTex("pic/den.png");
-	texture[26] = createTex("pic/kraken0.png");
-	texture[27] = createTex("pic/kraken1.png");
-	texture[28] = createTex("pic/kraken2.png");
-	texture[29] = createTex("pic/kraken3.png");
-	texture[30] = createTex("pic/kraken4.png");
-	texture[31] = createTex("pic/kraken5.png");
-	texture[32] = createTex("pic/kraken6.png");
-	texture[33] = createTex("pic/kraken7.png");
-	texture[34] = createTex("pic/kraken8.png");
+	texture[23] = createTex("pol.png");
+	texture[24] = createTex("br.png");
+	texture[25] = createTex("den.png");
+	texture[26] = createTex("kraken0.png");
+	texture[27] = createTex("kraken1.png");
+	texture[28] = createTex("kraken2.png");
+	texture[29] = createTex("kraken3.png");
+	texture[30] = createTex("kraken4.png");
+	texture[31] = createTex("kraken5.png");
+	texture[32] = createTex("kraken6.png");
+	texture[33] = createTex("kraken7.png");
+	texture[34] = createTex("kraken8.png");
 	
-	texture[35] = createTex("pic/brev.png");
-	texture[36] = createTex("pic/yac.png");
+	texture[35] = createTex("brev.png");
+	texture[36] = createTex("yac.png");
 	
-	//document.getElementById('player').play();
+	document.getElementById('player').play();
 	document.onkeydown = handleKeyDown;
 	document.onkeyup = handleKeyUp;
    
@@ -688,9 +692,9 @@ function story()
 function Start()
 {
 	posx_g = 200; 
-	posy_g = 360;
+	posy_g = 350;
 	posx_m = 0; 
-	posy_m = 290;
+	posy_m = 260;
 	bal = 0;
 	rab = 0;
 	flag = 0;
@@ -739,12 +743,12 @@ function gameOver()
 	document.getElementById('p3').innerHTML = "Игра закончена!<br/><br/>Количество монет......" + bal + "<br/>Пройдено метров......." + met + "<br/>Открыто историй......." + his;
 	if(!code)
 	{
-		var s = "<textarea autofocus=\"autofocus\" id=\"inptext\" style=\"width:100%; height:100px; \" ><table width = 200 height = 200 align=\"center\" style = \"text-align:center; color: #000; font-size: 15px; background-image:url('/userdir/1/0/0/0/1000395/79069349.png') !important;\">";
-		s += "<tr><td>Ваш результат!<br/>Количество монет......" + bal;
-		s += "<br/>Пройдено метров......." + met;
-		s += "<br/>Открыто историй......." + his;
-		s += "<br/><br/>Играть снова?<ссылка></td></tr>";
-		s += "</table></textarea>";
+		var s = "<textarea autofocus=\"autofocus\" id=\"inptext\" style=\"width:100%; height:100px; \" ><div style = \"width: 300px; height: 160px; color: #000; front-size: 10px; border-radius: 4px; background-color:#716a21; box-shadow: 2px 2px 6px #333, inset 0px 0px 10px #a89130; border: 1px solid #a18f52; filter: alpha(opacity=98); -moz-opacity: 0.98; -khtml-opacity: 0.98; opacity: 0.98;\" align=\"center\" >";
+		s += "<p style = \"margin-top: 15px;\">Ваш результат!</p><table cellpadding = 5> <tr><td>Количество монет</td><td width='100px' align=\"right\">" + bal + "</td></tr>";
+		s += "<td>Пройдено метров</td><td width='100px' align=\"right\"> " + met + "</td></tr><tr>";
+		s += "<td>Открыто историй</td><td width='100px' align=\"right\">" + his + "<td></tr></table>";
+		s += "<a href=\"http://secure-dawn-4913.herokuapp.com/\">Играть снова?</a>";
+		s += "</div></textarea>";
 		document.getElementById("p6").innerHTML=s;
 		code = 1;
 	}
@@ -762,7 +766,7 @@ function About()
 function List()
 {
 	if(num_pr == mas_pr.length - 1)  num_pr = 0;
-	else  num_pr++; 
+	else num_pr++; 
 	document.getElementById("p2").innerHTML = mas_pr[num_pr];
 	return false;
 }
