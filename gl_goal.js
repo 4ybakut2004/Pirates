@@ -502,7 +502,7 @@ function drawScene()
 			}
 			for(var j = 0; j<kol_ya; j++)
 			{
-				if(posy_g + 50 >= 0 && posy_g<= 180 && posx_g + 50 >= mas_yac[j] && posx_g<=64+mas_yac[j])
+				if(posy_g + 50 >= 0 && posy_g<= 165 && posx_g + 50 >= mas_yac[j] && posx_g<=50+mas_yac[j])
 				{	
 					fl_over = 1;
 				}
