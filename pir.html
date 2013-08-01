@@ -6,7 +6,7 @@
 <script type="text/javascript" src="webgl_utils_shader.js"></script>
 <script type="text/javascript" src="gl_goal.js"></script>
 
-<script id="2d-vertex-shader" type="x-shader/x-vertex" src="gl_vertex.js">
+<script id="2d-vertex-shader" type="x-shader/x-vertex">
 attribute vec2 a_position;
 uniform vec2 u_resolution;
 varying vec2 v_texCoord;
@@ -39,15 +39,16 @@ void main()
 <center>
 <div style = "background-image: url(fon.jpg); background-repeat: no-repeat; width: 1270px; height: 684px;">
 <audio id="player" src="1.ogg" loop></audio>
-<table align="center" >
+<table align="center">
 <tbody>
+<tr><td>&nbsp </td></tr>
 <tr>
 <td valign="center">
-<a href="http://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists" class = "po" >Не идет игры? Тогда тебе сюда!</a>
+<a href="http://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists" class = "po" style = "font-size: 20px;">Не идет игры? Тогда тебе сюда!</a>
 <div style = "background-image: url(console.png); width: 287px; height: 479px; margin-top: 18px;" align="center" >
 <br /><text style = "font-family: SickCapital Kingston; font-size: 25px;">Путеводитель!
-<p id = "p2" style = "font-family: SickCapital Kingston; font-size: 18px; padding: 30px; margin-top:-12px;" > </p>
-<img src="moreButton.png" width = 130 height = 35 onmousedown = "List();" style = "top: 540px; position: absolute; margin-left: -60px;">
+<p id = "p2" style = "font-family: SickCapital Kingston; font-size: 18px; padding: 30px; height: 305px; margin-top:-12px;" > </p>
+<div style = "background-image: url(moreButton.png); width: 130px; height: 35px; margin-top: 18px;" onmousedown = "List();"></div>
 </div>
 </td>
 <td>
@@ -101,9 +102,9 @@ void main()
 		</tbody></table>
 	</div>
 	<div id="wind_about" align="center">
-		<p class= "po" height = 20 >О нас!</p>
-		<p id = "p5"></p>
-		<img src="button1.png" width = 50 onmousedown = "Close_about();"><p>
+		<text class = "po" style = "font-size: 25px;">О нас!</text>
+		<p id = "p5" style = "font-size: 18px;"></p>
+		<img src="ok.png" width = 50 onmousedown = "Close_about();"><p>
 	</div>	
 </td>
 </tr>

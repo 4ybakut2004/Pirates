@@ -122,7 +122,7 @@ function init_GL()
 	gl=getWebGLContext(canvas);
 	if(!gl)
 	{
-		alert('Ваши драйвера утстарели!');
+		alert('Ваши драйвера утстарели или ваше видео карта не подерживает WebGL!');
 		return;
 	}
 	
@@ -153,6 +153,7 @@ function init_GL()
 	kol_b = Math.floor((Math.random()*10)+1);
 	mas_br[0] = Math.floor((Math.random()*700)+500);
 	mas_br_y[0] = Math.floor((Math.random()*400)+10);
+	mas_br_fl[0] = 1;
 	for(var i = 1; i < kol_b; i++)
 	{
 		mas_br[i] = mas_br[i-1] + Math.floor((Math.random()*200)+50);
@@ -437,7 +438,7 @@ function drawScene()
 			{
 				if(mas_br_fl[q])
 				{
-					if(posy_g>= mas_br_y[q]-80 && posy_g<= mas_br_y[q]+40 && posx_g<=mas_br[q] && posx_g>=-50+mas_br[q])
+					if(posy_g>= mas_br_y[q]-100 && posy_g<= mas_br_y[q]+50 && posx_g<=mas_br[q] && posx_g>=-50+mas_br[q])
 					{
 						mas_br_fl[q] = 0;	
 						posx_m += 5;
@@ -548,12 +549,10 @@ function drawScene()
 	}
 }
 
+
 function main()
 {
 	Start();
-	init_GL();
-	initShader();	
-	initBuff();
 	
 	document.getElementById("p2").innerHTML = mas_pr[num_pr];	
 	document.getElementById("p5").innerHTML = "Игра разработана командой <a href=\"http://fk-2o13.diary.ru/?tag=4902746\">fandom Pirates of the Caribbean 2013</a> для Фандомной битвы - 2013 на <a href=\"http://www.diary.ru/\">diary.ru</a> <br/>";
@@ -604,7 +603,7 @@ function main()
 	texture[35] = createTex("brev.png");
 	texture[36] = createTex("yac.png");
 	
-	document.getElementById('player').play();
+	//document.getElementById('player').play();
 	document.onkeydown = handleKeyDown;
 	document.onkeyup = handleKeyUp;
    
@@ -713,6 +712,7 @@ function Start()
 	met = 0;
 	his = 0;
 	num_pr = 0;
+	
 	init_GL();
 	initShader();	
 	initBuff();
@@ -721,6 +721,7 @@ function Start()
 	
 	document.getElementById("p2").innerHTML = mas_pr[num_pr];
 	
+	document.getElementById("wind_bal").style.display = "none";
 	document.getElementById("bal").innerHTML = "0";
 	
 	document.getElementById('over').style.display='none';
