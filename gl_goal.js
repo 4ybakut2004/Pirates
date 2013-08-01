@@ -438,7 +438,7 @@ function drawScene()
 			{
 				if(mas_br_fl[q])
 				{
-					if(posy_g>= mas_br_y[q]-100 && posy_g<= mas_br_y[q]+50 && posx_g<=mas_br[q] && posx_g>=-50+mas_br[q])
+					if(posy_g>= mas_br_y[q]-80 && posy_g<= mas_br_y[q]+40 && posx_g<=mas_br[q] && posx_g>=-50+mas_br[q])
 					{
 						mas_br_fl[q] = 0;	
 						posx_m += 5;
