@@ -603,7 +603,7 @@ function main()
 	texture[35] = createTex("brev.png");
 	texture[36] = createTex("yac.png");
 	
-	//document.getElementById('player').play();
+	document.getElementById('player').play();
 	document.onkeydown = handleKeyDown;
 	document.onkeyup = handleKeyUp;
    
