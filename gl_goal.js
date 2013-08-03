@@ -601,7 +601,7 @@ function ChangeImage(num, kul)
 		case 8: g = "im8"; pic = "8.png"; break;
 		case 9: g = "im9"; pic = "9.png"; break;
 		case 10: g = "im10"; pic = "10.png"; break;
-		case 11: g = "im11"; pic = "11.png"; break;
+		case 11: g = "im11"; pic = "11.png"; break; 
 		case 12: g = "im12"; pic = "12.png"; break;
 	}
 	if(num==2)
