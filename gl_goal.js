@@ -275,6 +275,7 @@ function initShader()
 	gl.useProgram(shaderProgram);
 	
 	shaderProgram.vertexPositionAttribute=gl.getAttribLocation(shaderProgram,"a_position");
+
 	gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
 	
 	shaderProgram.textureCoordAttribute=gl.getAttribLocation(shaderProgram,"a_texCoord");
@@ -797,6 +798,9 @@ function Start()
 	
 	document.getElementById('over').style.display='none';
 	document.getElementById('code_vs').style.display='none';
+
+	document.getElementById('wind_story').style.display='none';
+	document.getElementById('wind_about').style.display='none';
 }
 
 //------------------------------------перервыв на твикс---------------------------------
