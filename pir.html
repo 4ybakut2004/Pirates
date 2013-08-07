@@ -45,10 +45,10 @@ void main()
 <tr>
 <td valign="center"> 
 <a href="http://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists" class = "po" style = "font-size: 20px;">Не идет игры? Тогда тебе сюда!</a>
-<div style = "background-image: url(console.png); width: 287px; height: 479px; margin-top: 18px;" align="center" >
-<br /><text style = "font-family: Arial Narrow !important; font-size: 25px;">Путеводитель!
-<p id = "p2" style = "font-family: Arial Narrow !important; font-size: 18px; padding: 35px 32px 35px 37px; height: 305px; margin-top:-12px; text-align:left; color: #1d1101" > </p>
-<div style = "background-image: url(moreButton.png); width: 130px; height: 35px; margin-top: 18px;" onmousedown = "List();"></div>
+<div style = "background-image: url(console.png); width: 287px; height: 479px; margin-top: 14px;" align="center" >
+<br/><div style = "font-family: Arial Narrow !important; font-size: 25px; padding: 35px 32px 35px 37px; color: #1d1101; margin-top:-27px;" >Путеводитель!</div>
+<p id = "p2" style = "font-family: Arial Narrow !important; font-size: 18px; padding: 35px 32px 35px 37px; height: 305px; margin-top: -45px; text-align:left; color: #1d1101" > </p>
+<div style = "background-image: url(moreButton.png); width: 130px; height: 35px; margin-top: -14px;" onmousedown = "List();"></div>
 </div>
 </td>
 <td>
@@ -69,6 +69,10 @@ void main()
 	
 	<div id="over">
 		<p id = "p3" style = "font-family: Arial Narrow !important; font-size: 15px;"></p>
+	</div>
+	<div id = "over_over">
+		<p style = "font-family: Arial Narrow !important; font-size: 18px;">Вы проиграли!</p>
+		<img src="ok.png" width = 50 onmousedown = "Close_over();"><p>
 	</div>
 	<div id = "code_vs" >
 		<p id = "p7" style = "font-family: Arial Narrow !important; font-size: 18px;">Поделиться результатом!</p>

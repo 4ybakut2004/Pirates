@@ -54,13 +54,79 @@ var s_x, s_y;									//координаты звезды
 var fl_shit;									//защита от бомб
 var go;											//пробег с аурой
 
-var mas_point = new Array(20, 50, 100, 300, 700); 
+var mas_point = new Array(20, 50, 100, 300, 700, 1000, 1200); 
 var mas_pr = new Array(							//массив правил
-"Сперва выберите персонажа, за которого будете играть. Для начала нашего славного приключения нажмите клавишу d. Бежать от врага тебе поможет та же самая клавиша. А клавиши w и s помогут тебе уворачиваться от бомб и ловить монетки столько ценные в нашем деле. На пути тебе буду встречать якори и бревна, ",
-"увиливай от них, иначе предеться начать заново! Следи за черепками, что появляются в правом углу экрана, чем больше их, тем ближе ты к открытию новой части истории. Для каждого героя своя легенда! Собери все!<br/>  Открытые истории закрывают при нажатии на enter!",
+"Сперва выберите персонажа, за которого будете играть. Для начала нашего славного приключения нажмите клавишу d. Бежать от врага тебе поможет та же самая клавиша. А клавиши w и s помогут тебе уворачиваться от бомб и ловить монетки столь ценные в нашем деле.",
+"На пути тебе буду встречать якори и бревна, увиливай от них, иначе предеться начать заново! Следи за черепками, что появляются в правом углу экрана, чем больше их, тем ближе ты к открытию новой части истории. Для каждого героя своя легенда! Собери все!<br/>  Открытые истории закрывают по enter!",
+"На дно моское иногда опускаются заветные капельки, не забывай их ловить, они помогут тебе проскальзывать невредимым даже, когда ты поймаешь бомбу!",
 "Если ты захочешь отдохнуть, то жми p, или воспользуйся кнопкой на панели.",
 "Надоела музыка? Воспользуйся панельными кнопками. Там же имеются и регуляторы громкости. Не теряйся!",
-"Хочешь узнать о нас? Ищи кнопку с мотором, там ты узнаешь не только о нашей команде, но и об обновлениях игры!"
+"Хочешь узнать о нас? Ищи кнопку с мотором, там ты узнаешь не только о нашей команде, но и об обновлениях игры!",
+"Пора начинать новую игру? Не беда, ищи кнопку на панели с закругленной стрелкой и продолжай наше великое путешествие!",
+"Ну и на последок! Если у тебя зависает, или не обновляется игра, значит, тебе пора:<br/>1. Почистить кэш;<br/>2. Перезагрузить браузер;<br/>3. Перезгрузить ваш ПК;<br/>4. Ну и на самый скверный случай, обновить браузер.<br/>5. Не забывайте о возможностях вашей видео карты! <br/> <p align=\"center\">Удачи!</p>"
+);
+
+var mas_str = new Array(
+"1",
+"2",
+"3",
+"4",
+"5",
+"6",
+"7",
+"8",
+"9",
+"10",
+"11",
+"12",
+"13",
+"14",
+"15",
+"16",
+"17",
+"18",
+"19",
+"20",
+"21",
+"22",
+"23",
+"24",
+"25",
+"26",
+"27",
+"28",
+"29",
+"30",
+"31",
+"32",
+"33",
+"34",
+"35",
+"36",
+"37",
+"38",
+"39",
+"40",
+"41",
+"42",
+"43",
+"44",
+"45",
+"46",
+"47",
+"48",
+"49",
+"50",
+"51",
+"52",
+"53",
+"54",
+"55",
+"56",
+"57",
+"58",
+"59",
+"60"
 );		
 var num_pr;										//номер открытого правила			
 //---------------------------клавиши, мышки-----------------------------------------------
@@ -349,7 +415,7 @@ function drawScene()
 			{
 				if(mas_fon_fl[i])
 				{
-					pov(mas_fon[i], 0, 700, 700, i);
+					pov(mas_fon[i], 0, 700, 465, i);
 				}
 				if(mas_fon[i] < -700)
 				{		
@@ -393,10 +459,6 @@ function drawScene()
 				if(gk==26) pov(posx_m, posy_m, 200, 200, gk);
 				else { pov(posx_m, mas_shu[f], 200, 200, gk); f++};
 			}
-			
-			//---------------------герой--------------------------------------------------------
-			pov(posx_g,posy_g, 100, 100, rab);
-			
 			//---------------------бомбы---------------------------------------------------------
 			i = 24;
 			
@@ -405,7 +467,7 @@ function drawScene()
 				var asd = 0;
 				for(var q = 0; q<kol_b; q++)
 				{
-					if(mas_br_fl[q]) asd++;
+					asd++;
 				}
 				if(asd == kol_b) if(posx_m-10>=0) posx_m -=10;
 				kol_b = Math.floor((Math.random()*10)+1);
@@ -425,13 +487,19 @@ function drawScene()
 				if(mas_br_fl[q])
 				{
 					if(posy_g>= mas_br_y[q]-80 && posy_g<= mas_br_y[q]+40 && posx_g<=mas_br[q] && posx_g>=-50+mas_br[q])
-					{
-						mas_br_fl[q] = 0;	
-						if(!fl_shit) posx_m += 5; 													//если аура не поймана
+					{	
+						if(!fl_shit)
+						{
+							mas_br_fl[q] = 0;
+							posx_m += 5; 													//если аура не поймана
+						}
 					}
 					pov( mas_br[q], mas_br_y[q], 50, 50, i);
 				}
 			}
+			//---------------------герой--------------------------------------------------------
+			pov(posx_g,posy_g, 100, 100, rab);
+			
 			//-----------------------------------бревна---------------------------------------------------
 			i = k - 3;
 			if(mas_brev[kol_br - 1] < -200)
@@ -634,6 +702,32 @@ function Close_about()
 	return false;
 }
 
+function Close_over()
+{
+	document.getElementById('over_over').style.display='none';
+	document.getElementById('over').style.display='block'; 
+		
+	document.getElementById('code_vs').style.display='block'; 
+	
+	met = (met - met%100)/100;
+	document.getElementById('p3').innerHTML = "Ваш результат!<br/><br/>Количество монет......" + bal + "<br/>Пройдено метров......." + met + "<br/>Открыто историй......." + his;
+	
+	var s = "<textarea autofocus=\"autofocus\" id=\"inptext\" style=\"width:100%; height:100px; \" ><div style = \"width: 300px; height: 160px; color: #000; front-size: 10px; border-radius: 4px; background-color:#716a21; box-shadow: 2px 2px 6px #333, inset 0px 0px 10px #a89130; border: 1px solid #a18f52; filter: alpha(opacity=98); -moz-opacity: 0.98; -khtml-opacity: 0.98; opacity: 0.98;\" align=\"center\" >";
+	s += "<p style = \"margin-top: 15px;\">Ваш результат!</p><table cellpadding = 5> <tr><td>Количество монет</td><td width='100px' align=\"right\">" + bal + "</td></tr>";
+	s += "<td>Пройдено метров</td><td width='100px' align=\"right\"> " + met + "</td></tr><tr>";
+	s += "<td>Открыто историй</td><td width='100px' align=\"right\">" + his + "<td></tr></table>";
+	s += "<a href=\"http://secure-dawn-4913.herokuapp.com/\">Играть снова?</a>";
+	s += "</div></textarea>";
+	document.getElementById("p6").innerHTML=s;
+	return false;
+}
+
+function over()
+{
+	document.getElementById('over_over').style.display='block'; 
+	return false;
+}
+
 function card()
 {
 	document.getElementById('wind').style.display='block'; 
@@ -642,10 +736,19 @@ function card()
 
 function story()
 {
-	his++;
-	document.getElementById("p4").innerHTML = "Bоодушевляющая история!<br/> бла-бал-бла-бла-бла-бла-бла-бла-бла-бал-бла-бла-бла-бла";
+	var sr = "Bоодушевляющая история!<br/>";
+	if(his<5)
+	{
+		sr += mas_str[(rab-11)*5+his];
+	}
+	else
+	{
+		sr += "Ты открыл все истории! <br/>Пока мы еще думаем,<br/>как же вознаградить тебя за этот подвиг, так что<br/>приходи позже и получи своЮ награду!!!";
+	}
+	document.getElementById("p4").innerHTML = sr;
 	document.getElementById('wind_story').style.display='block';
 	cl_st = 1;
+	his++;
 	return false;
 }
 //----------------------обнуление все, начинаем все заново!-----------------------------
@@ -705,22 +808,11 @@ function Pause()
 //-------------------------------------конец игры---------------------------------------
 function gameOver()
 {
-	document.getElementById("wind_bal").style.display = "none";
-	document.getElementById('over').style.display='block'; 
-	document.getElementById('code_vs').style.display='block'; 
 	if(!code)
 	{
-		met = (met - met%100)/100;
-		document.getElementById('p3').innerHTML = "Игра закончена!<br/><br/>Количество монет......" + bal + "<br/>Пройдено метров......." + met + "<br/>Открыто историй......." + his;
-	
-		var s = "<textarea autofocus=\"autofocus\" id=\"inptext\" style=\"width:100%; height:100px; \" ><div style = \"width: 300px; height: 160px; color: #000; front-size: 10px; border-radius: 4px; background-color:#716a21; box-shadow: 2px 2px 6px #333, inset 0px 0px 10px #a89130; border: 1px solid #a18f52; filter: alpha(opacity=98); -moz-opacity: 0.98; -khtml-opacity: 0.98; opacity: 0.98;\" align=\"center\" >";
-		s += "<p style = \"margin-top: 15px;\">Ваш результат!</p><table cellpadding = 5> <tr><td>Количество монет</td><td width='100px' align=\"right\">" + bal + "</td></tr>";
-		s += "<td>Пройдено метров</td><td width='100px' align=\"right\"> " + met + "</td></tr><tr>";
-		s += "<td>Открыто историй</td><td width='100px' align=\"right\">" + his + "<td></tr></table>";
-		s += "<a href=\"http://secure-dawn-4913.herokuapp.com/\">Играть снова?</a>";
-		s += "</div></textarea>";
-		document.getElementById("p6").innerHTML=s;
+		document.getElementById("wind_bal").style.display = "none";
 		code = 1;
+		over();
 	}
 	return false;
 }
