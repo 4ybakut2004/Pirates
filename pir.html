@@ -52,7 +52,7 @@ void main()
 </td>
 <td>
 	<div style = "background-image: url(screen.png); width: 792px; height: 610px; margin-left:-53px;"> 
-		<canvas id="canvas" width="638" height="465" style = "margin-left: 76px; margin-top: 77px; border-radius: 6px;" ></canvas> 
+		<canvas id="canvas" width="638" height="465" style = "margin-left: 76px; margin-top: 77px; -webkit-border-radius: 6px; border-radius: 6px;" ></canvas> 
 		<div style = "margin-top: -370px; margin-left: 715px;">
 			<img src="muteButton.png" width = 46 height = 45 onmousedown = "if(!mus){ document.getElementById('player').pause(); mus = 1;} else {document.getElementById('player').play(); mus = 0;} "><br/>
 			<img src="soundUpButton.png" width = 46 height = 45 onmousedown = "document.getElementById('player').volume+=0.1;"><br/>
