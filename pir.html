@@ -52,9 +52,7 @@ void main()
 </td>
 <td>
 	<div style = "background-image: url(screen.png); width: 792px; height: 610px; margin-left:-53px;"> 
-		<canvas id="canvas" width="638" height="465" style = "margin-left: 76px; margin-top: 77px;" ></canvas> 
-		<div style = "background-image: url(tentakles.png); width: 769px; height: 598px; margin-left: 8px; margin-top: -547px; position: absolute;"></div>
-		<div style = "background-image: url(head.png); width: 362px; height:73px; top: 60px; position: absolute; margin-left: 220px;"> </div>
+		<canvas id="canvas" width="638" height="465" style = "margin-left: 76px; margin-top: 77px; border-radius: 6px;" ></canvas> 
 		<div style = "margin-top: -370px; margin-left: 715px;">
 			<img src="muteButton.png" width = 46 height = 45 onmousedown = "if(!mus){ document.getElementById('player').pause(); mus = 1;} else {document.getElementById('player').play(); mus = 0;} "><br/>
 			<img src="soundUpButton.png" width = 46 height = 45 onmousedown = "document.getElementById('player').volume+=0.1;"><br/>
@@ -63,6 +61,8 @@ void main()
 			<img src="infoButton.png" width = 46 height = 45 onmousedown = "About();"><br/>
 			<img src="retryButton.png" width = 46 height = 45 onmousedown = "Start();"><br/>
 		</div>
+		<div style = "background-image: url(tentakles.png); width: 769px; height: 598px; margin-left: 8px; margin-top: -470px; position: absolute;"></div>
+		<div style = "background-image: url(head.png); width: 362px; height:73px; top: 60px; position: absolute; margin-left: 220px;"> </div>
 	</div>
 	<div id="wind_bal" > <text id = "bal"> 0</div>  
 	
@@ -105,10 +105,10 @@ void main()
 		</tbody></table>
 	</div>
 	<div id="wind_about" align="center">
-		<text class = "po" style = "font-size: 25px;">О нас!</text>
-		<p id = "p5" style = "font-size: 18px;"></p>
-		<img src="ok.png" width = 50 onmousedown = "Close_about();"><p>
-	</div>	
+  	<p class = "po" style = "font-size: 25px; margin-top: 24px;">О нас!</p>
+  	<p id = "p5" style = "font-size: 18px; padding: 0px 14px 0px 20px; margin-top: -14px;"></p>
+	<img src="ok.png" width = 50 onmousedown = "Close_about();"><p>
+	</div>
 </td>
 </tr>
 </tbody></table>

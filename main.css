@@ -2,14 +2,14 @@
 .po
 {
 	background-image: url(board.png); 
-	width: 267px; 
-	height: 45px;
+	width: 150px; 
+	height: 30px;
 	text-align: center;
 }
  
 #wind 
 {
-   position: absolute;
+    position: absolute;
     width:540px;
 	height: 440px;
     top: 140px;
@@ -27,7 +27,7 @@
     width: 50px;
 	height: 20px;
     top: 120px;
-    border:solid #8B4513 4px;
+    border:double #8B4513 4px;
     overflow: hidden;
     background-color:#FAFAD2;
     color:#000;
@@ -90,25 +90,16 @@
 
 #wind_about 
 {
-	background-repeat: repeat-y;
+	background-image: url(ab.png);
     position: absolute;
-    width: 380px;
-	height: 180px;	
+    width: 400px;
+	height: 210px;	
     top: 170px;
     display: none;
     overflow: hidden;
     color: #000; 
-	padding: 7px;
 	margin-left: 145px;	
 	
-	border-radius: 4px; 
-	background-color:#716a21; 
-	box-shadow: 2px 2px 6px #333, inset 0px 0px 10px #a89130; 
-	border: 1px solid #a18f52; 
-	filter: alpha(opacity=98); 
-	-moz-opacity: 0.98; 
-	-khtml-opacity: 0.98; 
-	opacity: 0.98;
 }
 
 #wind_story
@@ -144,9 +135,4 @@ a
 a:hover 
 {
 	color: #8B4513;
-}
-
-#canvas
-{
-	border-radius: 6px; 
 }
