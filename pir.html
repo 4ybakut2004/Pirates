@@ -11,7 +11,6 @@ attribute vec2 a_position;
 uniform vec2 u_resolution;
 varying vec2 v_texCoord;
 attribute vec2 a_texCoord;
- 
 void main() 
 {
    vec2 zeroToOne = a_position / u_resolution;
@@ -54,9 +53,9 @@ void main()
 <td>
 	<div style = "background-image: url(screen.png); width: 792px; height: 610px; margin-left:-53px;"> 
 		<canvas id="canvas" width="638" height="465" style = "margin-left: 76px; margin-top: 77px;" ></canvas> 
-		<img src="tentakles.png" style = "width: 769px; height: 598px; margin-left: 7px; margin-top: -550px;"/> 
+		<div style = "background-image: url(tentakles.png); width: 769px; height: 598px; margin-left: 8px; margin-top: -547px; position: absolute;"></div>
 		<div style = "background-image: url(head.png); width: 362px; height:73px; top: 60px; position: absolute; margin-left: 220px;"> </div>
-		<div style = "margin-top: -420px; margin-left: 715px;">
+		<div style = "margin-top: -370px; margin-left: 715px;">
 			<img src="muteButton.png" width = 46 height = 45 onmousedown = "if(!mus){ document.getElementById('player').pause(); mus = 1;} else {document.getElementById('player').play(); mus = 0;} "><br/>
 			<img src="soundUpButton.png" width = 46 height = 45 onmousedown = "document.getElementById('player').volume+=0.1;"><br/>
 			<img src="soundDownButton.png" width = 46 height = 45 onmousedown = "document.getElementById('player').volume-=0.1;"><br/>

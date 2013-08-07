@@ -67,7 +67,9 @@
 	background-color:#716a21; 
 	box-shadow: 2px 2px 6px #333, inset 0px 0px 10px #a89130; 
 	border: 1px solid #a18f52; 
-
+	filter: alpha(opacity=98); 
+	-moz-opacity: 0.98; 
+	-khtml-opacity: 0.98; 
 	opacity: 0.98;
 }
 
