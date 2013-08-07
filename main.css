@@ -52,25 +52,17 @@
 
 #over_over
 {
+ background-image: url(ov.png);
     position: absolute;
-    width: 200px;
-	height: 95px;	
-    top: 220px;
+    width: 180px;
+ height: 80px; 
+    top: 250px;
     display: none;
     overflow: hidden;
     color:#000; 
-	padding: 7px;
-	text-align: center; 
-	margin-left: 240px;	
-	
-	border-radius: 4px; 
-	background-color:#716a21; 
-	box-shadow: 2px 2px 6px #333, inset 0px 0px 10px #a89130; 
-	border: 1px solid #a18f52; 
-	filter: alpha(opacity=98); 
-	-moz-opacity: 0.98; 
-	-khtml-opacity: 0.98; 
-	opacity: 0.98;
+ padding: 7px;
+ text-align: center; 
+ margin-left: 245px; 
 }
 
 #code_vs
