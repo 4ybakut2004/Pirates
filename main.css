@@ -52,17 +52,17 @@
 
 #over_over
 {
- background-image: url(ov.png);
+	background-image: url(ov.png);
     position: absolute;
     width: 180px;
- height: 80px; 
-    top: 250px;
+	height: 80px;	
+    top: 275px;
     display: none;
     overflow: hidden;
     color:#000; 
- padding: 7px;
- text-align: center; 
- margin-left: 245px; 
+	padding: 7px;
+	text-align: center; 
+	margin-left: 248px;	
 }
 
 #code_vs
@@ -86,7 +86,7 @@
     position: absolute;
     width: 400px;
 	height: 210px;	
-    top: 170px;
+    top: 220px;
     display: none;
     overflow: hidden;
     color: #000; 
@@ -126,5 +126,5 @@ a
  
 a:hover 
 {
-	color: #8B4513;
+	color: #CD853F;
 }
