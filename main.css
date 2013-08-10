@@ -96,17 +96,16 @@
 
 #wind_story
 {
-	background-image: url(text.png);
+ background-image: url(ab.png);
     position: absolute;
-    width: 380px;
-	height: 180px;	
+    width: 404px;
+ height: 216px; 
     top: 170px;
     display: none;
     overflow: hidden;
     color: #000; 
-	padding: 7px;
-	text-align: center; 
-	margin-left: 160px;		
+ text-align: center; 
+ margin-left: 160px;  
 }
 
 #td_s
