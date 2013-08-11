@@ -501,228 +501,231 @@ function drawScene()
 {	
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 	
-	if(go>1200){ fl_shit = 0; go = 0; }															//халява кончилась
-	for(var j = 0; j<5; j++)
+	if(!code)
 	{
-		if(bal==mas_point[j]&&!fl_bl)
+		if(go>1200){ fl_shit = 0; go = 0; }															//халява кончилась
+		for(var j = 0; j<5; j++)
 		{
-			s_m ++;
-			s ++;
-			s_b ++;
-			s_br ++;
-			s_ya ++;
-			fl_bl = 1;
-			story();
-			fl_p = 0;
-			pos = j + 1;
+			if(bal==mas_point[j]&&!fl_bl)
+			{
+				s_m ++;
+				s ++;
+				s_b ++;
+				s_br ++;
+				s_ya ++;
+				fl_bl = 1;
+				story();
+				fl_p = 0;
+				pos = j + 1;
+			}
+			if(bal==mas_point[j]+1) fl_bl = 0;
 		}
-		if(bal==mas_point[j]+1) fl_bl = 0;
-	}
-	if(rab != 0)													//выбран ли герой!
-	{
-		if(posx_g-80<=posx_m&&posx_g>=posx_m||fl_over) gameOver();	//не пора ли заканчивать?)
-		else
+		if(rab != 0)													//выбран ли герой!
 		{
-			if(flag&&fl_p&&!cl_st)									//можно ли нам двигать?)
-			{	
-				move_obj(kol, s_m, mas_mon);
-				move_obj(11, s, mas_fon);
-				move_obj(kol_b, s_b, mas_br);
-				move_obj(kol_br, s_br, mas_brev);
-				move_obj(kol_ya, s_ya, mas_yac);
-				if(fl_shit) go += s;
-				s_y++;
-				met += s;
-				for(var f = 0; f<8; f++)
-				{
-					mas_shu[f] = posy_m + Math.floor((Math.random()*10)-5);
-				}	
-				if(posy_g<360) 
-				{
-					posy_g+=1; 
-				}
-				else
-				{			
-					if(posy_g<410) 
+			if(posx_g-80<=posx_m&&posx_g>=posx_m||fl_over) gameOver();	//не пора ли заканчивать?)
+			else
+			{
+				if(flag&&fl_p&&!cl_st)									//можно ли нам двигать?)
+				{	
+					move_obj(kol, s_m, mas_mon);
+					move_obj(11, s, mas_fon);
+					move_obj(kol_b, s_b, mas_br);
+					move_obj(kol_br, s_br, mas_brev);
+					move_obj(kol_ya, s_ya, mas_yac);
+					if(fl_shit) go += s;
+					s_y++;
+					met += s;
+					for(var f = 0; f<8; f++)
 					{
-						posy_g-=1;
-					}
-				}
-				posx_m += 1;
-			}
-			var i;
-			
-			//---------------------фон----------------------------------------------------------
-			if(mas_fon[10] <= 0)
-			{
-				for(var j = 0; j < 11; j++) 
-				{
-					mas_fon[j] = 700*j;
-					mas_fon_fl[j] = 0;
-				}
-				mas_fon_fl[0] = 1;
-				mas_fon_fl[1] = 1;
-			}
-			
-			for(i=0; i<11; i++)
-			{
-				if(mas_fon_fl[i])
-				{
-					pov(mas_fon[i], 0, 700, 465, i);
-				}
-				if(mas_fon[i] < -700)
-				{		
-					mas_fon_fl[i] = 0;
-					mas_fon_fl[(i + 2) % 11] = 1;
-				}
-			}
-			//---------------------монетки------------------------------------------------------
-			i = 25;
-			if(mas_mon[kol - 1] < -100)
-			{
-				y_m = Math.floor((Math.random()*400)+10);
-				kol = Math.floor((Math.random()*10)+2);
-				mas_mon[0] = Math.floor(700 + Math.random()*1000);
-				mas_fl[0] = 1;
-				for(var v = 1; v < kol; v++)
-				{
-					mas_mon[v] = mas_mon[v-1] + 50;
-					mas_fl[v] = 1;
-				}
-			}
-				
-			for(var q = 0; q<kol; q++)
-			{
-				if(mas_fl[q])
-				{
-					if(posy_g>=y_m-100 && posy_g<=y_m+50 && posx_g<=mas_mon[q] && posx_g>=-50+mas_mon[q])
+						mas_shu[f] = posy_m + Math.floor((Math.random()*10)-5);
+					}	
+					if(posy_g<360) 
 					{
-						bal ++;
-						document.getElementById("bal").innerHTML = bal;
-						mas_fl[q] = 0;	
+						posy_g+=1; 
 					}
-					pov(mas_mon[q], y_m, 50, 50, i);
-				}
-			}
-			//---------------------монстр----------------------------------------------------------
-			i = 26;
-			var f = 0;
-			for(var gk = i; gk < k - 1; gk++)
-			{
-				if(gk==26) pov(posx_m, posy_m, 200, 200, gk);
-				else { pov(posx_m, mas_shu[f], 200, 200, gk); f++};
-			}
-			//---------------------бомбы---------------------------------------------------------
-			i = 24;
-			
-			if(mas_br[kol_b - 1] < -100)
-			{
-				var asd = 0;
-				for(var q = 0; q<kol_b; q++)
-				{
-					asd++;
-				}
-				if(asd == kol_b) if(posx_m-10>=0) posx_m -= 3;
-				kol_b = Math.floor((Math.random()*10)+1);
-				mas_br[0] = Math.floor((Math.random()*700)+500);
-				mas_br_y[0] = Math.floor((Math.random()*400)+10);
-				mas_br_fl[0] = 1;
-				for(var i = 1; i < kol_b; i++)
-				{
-					mas_br[i] = mas_br[i-1] + Math.floor((Math.random()*200)+50);
-					mas_br_y[i] = Math.floor((Math.random()*400)+10);
-					mas_br_fl[i] = 1;
-				}
-			}
-				
-			for(var q = 0; q<kol_b; q++)
-			{
-				if(mas_br_fl[q])
-				{
-					if(posy_g>= mas_br_y[q]-80 && posy_g<= mas_br_y[q]+40 && posx_g<=mas_br[q] && posx_g>=-50+mas_br[q])
-					{	
-						if(!fl_shit)
+					else
+					{			
+						if(posy_g<410) 
 						{
-							mas_br_fl[q] = 0;
-							posx_m += 5; 													//если аура не поймана
+							posy_g-=1;
 						}
 					}
-					pov( mas_br[q], mas_br_y[q], 50, 50, i);
+					posx_m += 1;
 				}
-			}
-			//---------------------герой--------------------------------------------------------
-			pov(posx_g,posy_g, 100, 100, rab);
-			
-			//-----------------------------------бревна---------------------------------------------------
-			i = k - 3;
-			if(mas_brev[kol_br - 1] < -200)
-			{
-				kol_br = Math.floor((Math.random()*2)+1);
-				mas_brev[0] = Math.floor((Math.random()*700)+700);
-				for(var j = 1; j < kol_br; j++)
-				{
-					mas_brev[i] = mas_brev[i-1] + Math.floor((Math.random()*300)+100);
-				}
-			}
-			for(var j = 0; j<kol_br; j++)
-			{
-				if(posy_g + 50 >= 370 && posy_g <= 370 + 100 && posx_g <= mas_brev[j] + 160 && posx_g + 30 >= mas_brev[j])
-				{	
-					fl_over = 1;
-				}
-				pov(mas_brev[j], 370, 200, 100, i);
-			}
-			
-			//-----------------------------------якорь---------------------------------------------------
-			i = k - 2;
-			if(mas_yac[kol_ya - 1] < -100)
-			{
-				kol_ya = Math.floor((Math.random()*2)+1);
-				mas_yac[0] = Math.floor((Math.random()*700)+700); 
-				for(var j = 1; j < kol_ya; j++)
-				{
-					mas_yac[j] = mas_yac[j-1] + Math.floor((Math.random()*300)+100);
-				}
-			}
-			for(var j = 0; j<kol_ya; j++)
-			{
-				if(posy_g + 50 >= 0 && posy_g<= 165 && posx_g + 50 >= mas_yac[j] && posx_g<=30+mas_yac[j])
-				{	
-					fl_over = 1;
-				}
-				pov(mas_yac[j], 0, 84, 200, i);
-			}
-			
-			//------------------------------бонус!!!------------------------------------------------------		
-			i = k - 1;
-			var ah = Math.floor((Math.random()*100) + 1);
-			if(s_y>400&&ah==2&&!fl_shit) 
-			{
-				s_x = Math.floor((Math.random()*700) + 300);
-				s_y = -70;
-			}
-			if(posx_g + 50 >= s_x && posx_g <= s_x && posy_g + 50 >= s_y &&posy_g <= s_y) 
-			{
-				s_y = 500;
-				fl_shit = 1;
-			}
-			pov(s_x, s_y, 50, 50, i);
-			if(fl_shit)
-			{
-				pov(600, 60, 25, 25, i);
-			}
+				var i;
 				
-			//------------------------------черепушечки----------------------------------------------------
-			i = 23;
-			if(pos==0 && bal==mas_point[pos]*kon/100)
-			{ 
-				kl++; 
-				kon += 20;
-			}
-			else if(bal-mas_point[pos-1]==(mas_point[pos]-mas_point[pos-1])*kon/100){ kl++; kon += 20;}
-			for(var l = 0; l < kl; l++)
-			{
-				pov(580 - 50*l, 5, 50, 50, i);
+				//---------------------фон----------------------------------------------------------
+				if(mas_fon[10] <= 0)
+				{
+					for(var j = 0; j < 11; j++) 
+					{
+						mas_fon[j] = 700*j;
+						mas_fon_fl[j] = 0;
+					}
+					mas_fon_fl[0] = 1;
+					mas_fon_fl[1] = 1;
+				}
+				
+				for(i=0; i<11; i++)
+				{
+					if(mas_fon_fl[i])
+					{
+						pov(mas_fon[i], 0, 700, 465, i);
+					}
+					if(mas_fon[i] < -700)
+					{		
+						mas_fon_fl[i] = 0;
+						mas_fon_fl[(i + 2) % 11] = 1;
+					}
+				}
+				//---------------------монетки------------------------------------------------------
+				i = 25;
+				if(mas_mon[kol - 1] < -100)
+				{
+					y_m = Math.floor((Math.random()*400)+10);
+					kol = Math.floor((Math.random()*10)+2);
+					mas_mon[0] = Math.floor(700 + Math.random()*1000);
+					mas_fl[0] = 1;
+					for(var v = 1; v < kol; v++)
+					{
+						mas_mon[v] = mas_mon[v-1] + 50;
+						mas_fl[v] = 1;
+					}
+				}
+					
+				for(var q = 0; q<kol; q++)
+				{
+					if(mas_fl[q])
+					{
+						if(posy_g>=y_m-100 && posy_g<=y_m+50 && posx_g<=mas_mon[q] && posx_g>=-50+mas_mon[q])
+						{
+							bal ++;
+							document.getElementById("bal").innerHTML = bal;
+							mas_fl[q] = 0;	
+						}
+						pov(mas_mon[q], y_m, 50, 50, i);
+					}
+				}
+				//---------------------монстр----------------------------------------------------------
+				i = 26;
+				var f = 0;
+				for(var gk = i; gk < k - 1; gk++)
+				{
+					if(gk==26) pov(posx_m, posy_m, 200, 200, gk);
+					else { pov(posx_m, mas_shu[f], 200, 200, gk); f++};
+				}
+				//---------------------бомбы---------------------------------------------------------
+				i = 24;
+				
+				if(mas_br[kol_b - 1] < -100)
+				{
+					var asd = 0;
+					for(var q = 0; q<kol_b; q++)
+					{
+						asd++;
+					}
+					if(asd == kol_b) if(posx_m-10>=0) posx_m -= 3;
+					kol_b = Math.floor((Math.random()*10)+1);
+					mas_br[0] = Math.floor((Math.random()*700)+500);
+					mas_br_y[0] = Math.floor((Math.random()*400)+10);
+					mas_br_fl[0] = 1;
+					for(var i = 1; i < kol_b; i++)
+					{
+						mas_br[i] = mas_br[i-1] + Math.floor((Math.random()*200)+50);
+						mas_br_y[i] = Math.floor((Math.random()*400)+10);
+						mas_br_fl[i] = 1;
+					}
+				}
+					
+				for(var q = 0; q<kol_b; q++)
+				{
+					if(mas_br_fl[q])
+					{
+						if(posy_g>= mas_br_y[q]-80 && posy_g<= mas_br_y[q]+40 && posx_g<=mas_br[q] && posx_g>=-50+mas_br[q])
+						{	
+							if(!fl_shit)
+							{
+								mas_br_fl[q] = 0;
+								posx_m += 5; 													//если аура не поймана
+							}
+						}
+						pov( mas_br[q], mas_br_y[q], 50, 50, i);
+					}
+				}
+				//---------------------герой--------------------------------------------------------
+				pov(posx_g,posy_g, 100, 100, rab);
+				
+				//-----------------------------------бревна---------------------------------------------------
+				i = k - 3;
+				if(mas_brev[kol_br - 1] < -200)
+				{
+					kol_br = Math.floor((Math.random()*2)+1);
+					mas_brev[0] = Math.floor((Math.random()*700)+700);
+					for(var j = 1; j < kol_br; j++)
+					{
+						mas_brev[i] = mas_brev[i-1] + Math.floor((Math.random()*300)+100);
+					}
+				}
+				for(var j = 0; j<kol_br; j++)
+				{
+					if(posy_g + 50 >= 370 && posy_g <= 370 + 100 && posx_g <= mas_brev[j] + 160 && posx_g + 30 >= mas_brev[j])
+					{	
+						fl_over = 1;
+					}
+					pov(mas_brev[j], 370, 200, 100, i);
+				}
+				
+				//-----------------------------------якорь---------------------------------------------------
+				i = k - 2;
+				if(mas_yac[kol_ya - 1] < -100)
+				{
+					kol_ya = Math.floor((Math.random()*2)+1);
+					mas_yac[0] = Math.floor((Math.random()*700)+700); 
+					for(var j = 1; j < kol_ya; j++)
+					{
+						mas_yac[j] = mas_yac[j-1] + Math.floor((Math.random()*300)+100);
+					}
+				}
+				for(var j = 0; j<kol_ya; j++)
+				{
+					if(posy_g + 50 >= 0 && posy_g<= 165 && posx_g + 50 >= mas_yac[j] && posx_g<=30+mas_yac[j])
+					{	
+						fl_over = 1;
+					}
+					pov(mas_yac[j], 0, 84, 200, i);
+				}
+				
+				//------------------------------бонус!!!------------------------------------------------------		
+				i = k - 1;
+				var ah = Math.floor((Math.random()*100) + 1);
+				if(s_y>400&&ah==2&&!fl_shit) 
+				{
+					s_x = Math.floor((Math.random()*700) + 300);
+					s_y = -70;
+				}
+				if(posx_g + 50 >= s_x && posx_g <= s_x && posy_g + 50 >= s_y &&posy_g <= s_y) 
+				{
+					s_y = 500;
+					fl_shit = 1;
+				}
+				pov(s_x, s_y, 50, 50, i);
+				if(fl_shit)
+				{
+					pov(600, 60, 25, 25, i);
+				}
+					
+				//------------------------------черепушечки----------------------------------------------------
+				i = 23;
+				if(pos==0 && bal==mas_point[pos]*kon/100)
+				{ 
+					kl++; 
+					kon += 20;
+				}
+				else if(bal-mas_point[pos-1]==(mas_point[pos]-mas_point[pos-1])*kon/100){ kl++; kon += 20;}
+				for(var l = 0; l < kl; l++)
+				{
+					pov(580 - 50*l, 5, 50, 50, i);
+				}
 			}
 		}
 	}
