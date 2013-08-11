@@ -624,7 +624,7 @@ function drawScene()
 					{
 						asd++;
 					}
-					if(asd == kol_b) if(posx_m-10>=0) posx_m -= 3;
+					if(asd == kol_b) if(posx_m-10>=0) posx_m -= 6;
 					kol_b = Math.floor((Math.random()*10)+1);
 					mas_br[0] = Math.floor((Math.random()*700)+500);
 					mas_br_y[0] = Math.floor((Math.random()*400)+10);
