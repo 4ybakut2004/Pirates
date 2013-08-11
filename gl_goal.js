@@ -622,7 +622,7 @@ function drawScene()
 				{
 					asd++;
 				}
-				if(asd == kol_b) if(posx_m-10>=0) posx_m -=10;
+				if(asd == kol_b) if(posx_m-10>=0) posx_m -= 3;
 				kol_b = Math.floor((Math.random()*10)+1);
 				mas_br[0] = Math.floor((Math.random()*700)+500);
 				mas_br_y[0] = Math.floor((Math.random()*400)+10);
@@ -737,51 +737,26 @@ function main()
 	document.getElementById("p5").innerHTML = "Игра разработана командой <a href=\"http://fk-2o13.diary.ru/?tag=4902746\">fandom Pirates of the Caribbean 2013</a> для Фандомной битвы - 2013 на <a href=\"http://www.diary.ru/\">diary.ru</a> <br/>";
 	//-----------------чтоб этот js!! с циклом не срабатывает, собака -___---------------
 	
-	texture[0] = createTex("back_01.jpg");
-	texture[1] = createTex("back_02.jpg");
-	texture[2] = createTex("back_03.jpg");
-	texture[3] = createTex("back_04.jpg");
-	texture[4] = createTex("back_05.jpg");
-	texture[5] = createTex("back_06.jpg");
-	texture[6] = createTex("back_07.jpg");
-	texture[7] = createTex("back_08.jpg");
-	texture[8] = createTex("back_09.jpg");
-	texture[9] = createTex("back_10.jpg");
-	texture[10] = createTex("back_01.jpg");
-	
-	//-------------------------------загрузка играков-------------------------------------
-	
-	texture[11] = createTex("1.png");
-	texture[12] = createTex("2.png");
-	texture[13] = createTex("3.png");
-	texture[14] = createTex("4.png");
-	texture[15] = createTex("5.png");
-	texture[16] = createTex("6.png");
-	texture[17] = createTex("7.png");
-	texture[18] = createTex("8.png");
-	texture[19] = createTex("9.png");
-	texture[20] = createTex("10.png");
-	texture[21] = createTex("11.png");
-	texture[22] = createTex("12.png");
-	
-	//---------------------------------атрибутика-----------------------------------
-	
-	texture[23] = createTex("pol.png");
-	texture[24] = createTex("br.png");
-	texture[25] = createTex("den.png");
-	texture[26] = createTex("kraken0.png");
-	texture[27] = createTex("kraken1.png");
-	texture[28] = createTex("kraken2.png");
-	texture[29] = createTex("kraken3.png");
-	texture[30] = createTex("kraken4.png");
-	texture[31] = createTex("kraken5.png");
-	texture[32] = createTex("kraken6.png");
-	texture[33] = createTex("kraken7.png");
-	texture[34] = createTex("kraken8.png");
-	
-	texture[35] = createTex("brev.png");
-	texture[36] = createTex("yac.png");
-	texture[37] = createTex("sv.png");
+	var texturesPaths = 
+	[
+	// Фон
+	"back_01.jpg", "back_02.jpg", "back_03.jpg", "back_04.jpg", "back_05.jpg",
+	"back_06.jpg", "back_07.jpg", "back_08.jpg", "back_09.jpg", "back_10.jpg",
+	"back_01.jpg",
+	// Игроки
+	"1.png", "2.png", "3.png", "4.png",  "5.png",  "6.png", 
+	"7.png", "8.png", "9.png", "10.png", "11.png", "12.png",
+	// Атрибутика
+	"pol.png", "br.png", "den.png", 
+	"kraken0.png", "kraken1.png", "kraken2.png", "kraken3.png",
+	"kraken4.png", "kraken5.png", "kraken6.png", "kraken7.png", "kraken8.png",
+	"brev.png", "yac.png", "sv.png"
+	];
+
+	for(var i = 0; i < 38; i++)
+	{
+		texture[i] = createTex(texturesPaths[i]);
+	}
 	
 	document.getElementById('player').play();
 	document.onkeydown = handleKeyDown;
