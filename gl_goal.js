@@ -843,12 +843,12 @@ function Close_over()
 	met = (met - met%100)/100;
 	document.getElementById('p3').innerHTML = "Ваш результат!<br/><br/>Количество монет......" + bal + "<br/>Пройдено метров......." + met + "<br/>Открыто историй......." + his;
 	
-	var s = "<textarea autofocus=\"autofocus\" id=\"inptext\" style=\"width:100%; height:100px; \" ><div style = \"width: 300px; height: 160px; color: #000; front-size: 10px; border-radius: 4px; background-color:#716a21; box-shadow: 2px 2px 6px #333, inset 0px 0px 10px #a89130; border: 1px solid #a18f52; filter: alpha(opacity=98); -moz-opacity: 0.98; -khtml-opacity: 0.98; opacity: 0.98;\" align=\"center\" >";
-	s += "<p style = \"margin-top: 15px;\">Ваш результат!</p><table cellpadding = 5> <tr><td>Количество монет</td><td width='100px' align=\"right\">" + bal + "</td></tr>";
-	s += "<td>Пройдено метров</td><td width='100px' align=\"right\"> " + met + "</td></tr><tr>";
-	s += "<td>Открыто историй</td><td width='100px' align=\"right\">" + his + "<td></tr></table>";
-	s += "<a href=\"http://secure-dawn-4913.herokuapp.com/\">Играть снова?</a>";
-	s += "</div></textarea>";
+	var s = "<textarea autofocus=\"autofocus\" id=\"inptext\" style=\"width:100%; height:100px; \" ><div style = \"width: 200px; height: 150px; color: #000; front-size: 10px; border-radius: 4px; background-color:#716a21; box-shadow: 2px 2px 6px #333, inset 0px 0px 10px #a89130; border: 1px solid #a18f52; filter: alpha(opacity=98); -moz-opacity: 0.98; -khtml-opacity: 0.98; opacity: 0.98;\" align=\"center\" ><img src=\"http://i.pixs.ru/storage/5/6/9/boardpng_6311240_8715569.png\" style = \"margin-top: 5px; \"><p style = \"margin-top: -23px; font-size:16px;\">Ваш результат!</p><p>";
+ s += "<table cellpadding = 2> <tr><td>Количество монет</td><td width='20px' align=\"right\">" + bal + "</td></tr>";
+ s += "<td>Пройдено метров</td><td width='20px' align=\"right\"> " + met + "</td></tr><tr>";
+ s += "<td>Открыто историй</td><td width='20px' align=\"right\">" + his + "<td></tr></table>";
+ s += "<p><p><p><a href=\"http://secure-dawn-4913.herokuapp.com/\">Играть снова?</a>";
+ s += "</div></textarea>";
 	document.getElementById("p6").innerHTML=s;
 	return false;
 }
