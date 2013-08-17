@@ -847,7 +847,7 @@ function Close_over()
  s += "<table cellpadding = 2> <tr><td>Количество монет</td><td width='20px' align=\"right\">" + bal + "</td></tr>";
  s += "<td>Пройдено метров</td><td width='20px' align=\"right\"> " + met + "</td></tr><tr>";
  s += "<td>Открыто историй</td><td width='20px' align=\"right\">" + his + "<td></tr></table>";
- s += "<p><p><p><a href=\"http://secure-dawn-4913.herokuapp.com/\">Играть снова?</a>";
+ s += "<p><p><p><a href=\"http://potc-game.herokuapp.com/\">Играть снова?</a>";
  s += "</div></textarea>";
 	document.getElementById("p6").innerHTML=s;
 	return false;
