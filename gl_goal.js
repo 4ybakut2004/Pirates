@@ -751,8 +751,8 @@ function level_1()
 							bal ++;
 							document.getElementById("bal").innerHTML = bal;
 							mas_mon[q][1] = 0;	
-							level_2_vis = 1;
-							level = 1;
+							//level_2_vis = 1;
+							//level = 1;
 						}
 						pov(mas_mon[q][0], y_m, 50, 50, i);
 					}
