@@ -96,16 +96,16 @@
 
 #wind_story
 {
- background-image: url(ab.png);
+	background-image: url(ab.png);
     position: absolute;
     width: 404px;
- height: 216px; 
+	height: 216px; 
     top: 170px;
     display: none;
     overflow: hidden;
     color: #000; 
- text-align: center; 
- margin-left: 160px;  
+	text-align: center; 
+	margin-left: 160px;  
 }
 
 #td_s
@@ -126,4 +126,46 @@ a
 a:hover 
 {
 	color: #CD853F;
+}
+
+#level_2
+{
+	background-image: url(ab.png);
+    position: absolute;
+    width: 404px;
+	height: 216px; 
+    top: 170px;
+    display: none;
+    overflow: hidden;
+    color: #000; 
+	text-align: center; 
+	margin-left: 160px;  
+}
+
+#level_3
+{
+	background-image: url(ab.png);
+    position: absolute;
+    width: 404px;
+	height: 216px; 
+    top: 170px;
+    display: none;
+    overflow: hidden;
+    color: #000; 
+	text-align: center; 
+	margin-left: 160px;  
+}
+
+#level_1
+{
+	background-image: url(ab.png);
+    position: absolute;
+    width: 404px;
+	height: 216px; 
+    top: 170px;
+    display: none;
+    overflow: hidden;
+    color: #000; 
+	text-align: center; 
+	margin-left: 160px;  
 }
